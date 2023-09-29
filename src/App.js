@@ -1,16 +1,16 @@
-import NavbarComponent from "./components/Navbar";
-import Main2 from "./components/Main2";
+import React from "react";
+import Navbar from "./components/Navbar";
+import Main from "./components/Main2";
 import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <div>
-      <NavbarComponent />
-      <Main2 />
+      <Navbar />
+      <Main />
       <Footer />
     </div>
   );
 };
 
 export default App;
-
