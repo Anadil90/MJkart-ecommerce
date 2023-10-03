@@ -6,7 +6,7 @@ const Main = () => {
       <div className="search-bar">
         <input type="text" placeholder="Search" />
       </div>
-      <button>Search</button>
+      <button style={{ width: 100, height: 44, color: "black" }}>Search</button>
     </div>
   );
 };
