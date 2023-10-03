@@ -24,9 +24,7 @@ function Navbar1(args) {
         <NavbarBrand href="/">
           <img style={logoStyle} className="navbarStyling" alt="logo-created" />
         </NavbarBrand>
-        <NavbarBrand href="/">
-          <img style={logoStyle2} src={setting} alt="logo-created" />
-        </NavbarBrand>
+        <NavbarBrand href="/"></NavbarBrand>
 
         <NavbarBrand href="/">
           <img style={logoStyle2} src={UserLog} alt="logo-created" />
