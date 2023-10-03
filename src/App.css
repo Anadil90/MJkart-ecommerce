@@ -1,4 +1,7 @@
 /* Navbar Styles */
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'reactstrap/dist/reactstrap.min.css';
+  
 .logo {
   font-size: 24px;
   font-weight: bold;
@@ -83,3 +86,4 @@
   font-weight: bold;
   font-size: 14px;
 }
+

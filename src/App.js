@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import Navbar1 from "./components/Navbar1";
 import Main from "./components/Main2";
 import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar1 />
       <Main />
       <Footer />
     </div>
