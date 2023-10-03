@@ -1,0 +1,17 @@
+.shopper-info {
+    width: 220px;
+    height: 240px;
+    background-color: #654034;
+    color: aliceblue;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.info-text {
+    font-size: 15px;
+    text-align: center;
+    padding: 10px;
+}
