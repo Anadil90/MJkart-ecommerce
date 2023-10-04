@@ -4,7 +4,6 @@ import './footer.css';
 const Footer = () => {
   return (
     <div>
-      <Container>
         <footer>
           <Row>
             <Col md='6' >
@@ -60,8 +59,6 @@ const Footer = () => {
            
           </Row>
         </footer>
-        
-      </Container>
     </div>
   );
 };
