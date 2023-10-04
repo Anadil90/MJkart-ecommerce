@@ -6,37 +6,41 @@ const Footer = () => {
     <div>
         <footer>
           <Row>
-            <Col md='6' >
+          
+            <Col md='6'>
               {/* link items take users to different pages. Displayed in blocks of 3 next to each other */}
-              <div>
+              <div className="footer-links">
                 <ul>
                   <li>
-                    <a href="/" to="">
+                    <a href="/" to="" className="footer-item">
                       link item1
                     </a>
                   </li>
                   <li>
-                    <a href="/" to="">
+                    <a href="/" to="" className="footer-item">
                       link item2
                     </a>
                   </li>
                   <li>
-                    <a href="/" to="">
+                    <a href="/" to="" className="footer-item">
                       link item3
                     </a>
                   </li>
+                </ul>
+
+                <ul>
                   <li>
-                    <a href="/" to="">
+                    <a href="/" to="" className="footer-item">
                       link item4
                     </a>
                   </li>
                   <li>
-                    <a href="/" to="">
+                    <a href="/" to="" className="footer-item">
                       link item5
                     </a>
                   </li>
                   <li>
-                    <a href="/" to="">
+                    <a href="/" to="" className="footer-item">
                       link item6
                     </a>
                   </li>
