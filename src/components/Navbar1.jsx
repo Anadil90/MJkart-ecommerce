@@ -31,14 +31,20 @@ function Navbar1(args) {
           <button>Cart</button>
           <button
             onClick={() => {
-              setOnline("User Online 🟢");
+             
+                setOnline("User Online 🟢");
+          
+            
             }}
             style={{ color: "grey", fontWeight: 100, margin: 15 }}
           >
             Sign In
           </button>
+          
+
           <small style={{ marginRight: 10 }}>{offline}</small>
           <img style={logoStyle2} src={UserLog} alt="logo-created" />
+      
         </NavbarBrand>
       </Navbar>
     </div>
