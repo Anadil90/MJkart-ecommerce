@@ -1,13 +1,17 @@
 import "../App.css";
+import "./main2.css";
 
 const Main = () => {
   return (
     <div className="main-container">
-      <div className="search-bar">
-        <input type="text" placeholder="Search" />
+
+      <div class="input-group">
+			  <input type="text" class="form-control" placeholder="search for a product"/>
+			  <div class="input-group-append"> 	
+		      <button type="submit" class="input-group-text btn">search</button>
+		    </div>
       </div>
-      <button style={{ width: 100, height: 44, color: "black" }}>Search</button>
-    </div>
+  </div>
   );
 };
 
