@@ -15,20 +15,14 @@
 
 /* Main Component Styles */
 .main-container {
-  background-image: url('./assets/pexels-scott-webb-430215.jpg');
+  background-color: rgb(137, 135, 135);
   background-size: cover;
   background-position: center;
   height: 200px;
-  margin-left: 10px;
-  margin-right: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
 }
 
 .search-bar {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(216, 216, 216, 0.8);
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
@@ -36,6 +30,7 @@
   justify-content: space-between;
   align-items: center;
   width: 400px;
+  background-color: transparent;
 }
 
 .search-bar input[type="text"] {
@@ -44,6 +39,7 @@
   outline: none;
   padding: 0;
   margin: 0;
+  background-color: gray;
 }
 
 .search-bar button {
@@ -85,3 +81,7 @@
   font-size: 14px;
 }
 
+.navbarStyling {
+  color: white;
+
+}

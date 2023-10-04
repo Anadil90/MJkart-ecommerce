@@ -3,6 +3,7 @@ import MJKARTLOGO from "../assets/MJ Kart-logo.png";
 import UserLog from "../assets/3541871.png";
 import setting from "../assets/settings.png";
 import "../App.css";
+import { useState } from "react";
 
 function Navbar1(args) {
   const logoStyle = {
@@ -15,6 +16,7 @@ function Navbar1(args) {
     hieght: 60,
   };
 
+  const [offline, setOnline] = useState("User Offline");
   return (
     <div>
       <Navbar>
@@ -27,6 +29,16 @@ function Navbar1(args) {
         <NavbarBrand href="/"></NavbarBrand>
 
         <NavbarBrand href="/">
+          <button>Cart</button>
+          <button
+            onClick={() => {
+              setOnline("User Online 🟢");
+            }}
+            style={{ color: "grey", fontWeight: 100, margin: 15 }}
+          >
+            Sign In
+          </button>
+          <small style={{ marginRight: 10 }}>{offline}</small>
           <img style={logoStyle2} src={UserLog} alt="logo-created" />
         </NavbarBrand>
       </Navbar>
