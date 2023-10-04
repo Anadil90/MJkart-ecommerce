@@ -1,13 +1,13 @@
 import { Navbar, NavbarBrand } from "reactstrap";
-import MJKARTLOGO from "../assets/MJ Kart-logo.png";
+import MJKARTLOGO from "../assets/racetosavings.png";
 import UserLog from "../assets/3541871.png";
 import "../App.css";
 import { useState } from "react";
 
 function Navbar1(args) {
   const logoStyle = {
-    width: 100,
-    hieght: 100,
+    width: 200,
+    hieght: 200,
   };
 
   const logoStyle2 = {
