@@ -7,7 +7,7 @@ const Footer = () => {
       <Container>
         <footer>
           <Row>
-            <Col md='6'>
+            <Col md='6' >
               {/* link items take users to different pages. Displayed in blocks of 3 next to each other */}
               <div>
                 <ul>
@@ -46,20 +46,18 @@ const Footer = () => {
             </Col>
            
     
-          <Col md='6'>
-            <div>
-              got questions? support@MJKART.com
-              <span>
-                <i src="./icons/facebook" />
-                <i src="./icons/instagram" />
-                <i src="./icons/twitter" />
-                <i src="./icons/youtube" />
-              </span>
-            </div>
-          </Col>
-          
-            
-            
+            <Col md='6'>
+              <div>
+                got questions? support@MJKART.com
+                <span>
+                  <i src="./icons/facebook" />
+                  <i src="./icons/instagram" />
+                  <i src="./icons/twitter" />
+                  <i src="./icons/youtube" />
+                </span>
+              </div>
+            </Col>
+           
           </Row>
         </footer>
         
