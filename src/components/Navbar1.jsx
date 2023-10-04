@@ -1,7 +1,6 @@
 import { Navbar, NavbarBrand } from "reactstrap";
 import MJKARTLOGO from "../assets/MJ Kart-logo.png";
 import UserLog from "../assets/3541871.png";
-import setting from "../assets/settings.png";
 import "../App.css";
 import { useState } from "react";
 
@@ -16,7 +15,7 @@ function Navbar1(args) {
     hieght: 60,
   };
 
-  const [offline, setOnline] = useState("User Offline");
+  const [offline, setOnline] = useState("Offline");
   return (
     <div>
       <Navbar>
