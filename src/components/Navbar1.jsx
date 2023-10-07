@@ -1,5 +1,13 @@
 import { Navbar, Nav, NavbarBrand, Button, NavItem, NavLink } from "reactstrap";
 import MJKARTLOGO from "../assets/racetosavings.png";
+import {
+  Navbar,
+  NavbarBrand,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Button,
+} from "reactstrap";
 import UserLog from "../assets/3541871.png";
 import "../App.css";
 import { useState } from "react";
@@ -7,12 +15,12 @@ import { useState } from "react";
 function Navbar1(args) {
   const logoStyle = {
     width: 200,
-    hieght: 200,
+    height: 200,
   };
 
   const logoStyle2 = {
     width: 60,
-    hieght: 60,
+    height: 60,
   };
 
   const [online, setOnline] = useState("user offline"); //initialise default state of user
@@ -70,6 +78,15 @@ function Navbar1(args) {
       
         </Nav>
       </Navbar>
+      <Modal isOpen={modalIsOpen} toggle={toggleModal}>
+        <ModalHeader toggle={toggleModal}>Shopping Cart</ModalHeader>
+        <ModalBody>
+          <p>This is your shopping cart content.</p>
+        </ModalBody>
+        <Button color="primary" onClick={toggleModal}>
+          <p>Close</p>
+        </Button>
+      </Modal>
     </div>
   );
 }
