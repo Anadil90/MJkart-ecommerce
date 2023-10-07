@@ -1,4 +1,4 @@
-import { Navbar, NavbarBrand } from "reactstrap";
+import { Navbar, Nav, NavbarBrand, Button, NavItem, NavLink } from "reactstrap";
 import MJKARTLOGO from "../assets/racetosavings.png";
 import UserLog from "../assets/3541871.png";
 import "../App.css";
@@ -15,37 +15,60 @@ function Navbar1(args) {
     hieght: 60,
   };
 
-  const [offline, setOnline] = useState("Offline");
+  const [online, setOnline] = useState("user offline"); //initialise default state of user
+  const [username, setUsername ] = useState('')
+  
   return (
     <div>
       <Navbar>
+      
+            {/*<NavLink><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /></NavLink>*/}
+        
         <NavbarBrand href="/">
           <img style={logoStyle} src={MJKARTLOGO} alt="logo-created" />
         </NavbarBrand>
-        <NavbarBrand href="/">
-          <img style={logoStyle} className="navbarStyling" alt="logo-created" />
-        </NavbarBrand>
-        <NavbarBrand href="/"></NavbarBrand>
 
-        <NavbarBrand href="/">
-          <button>Cart</button>
-          <button
+        <Nav>
+          <NavItem>
+            <NavLink href="/">
+          <img style={logoStyle} className="navbarStyling" alt="logo-created" />
+        </NavLink>
+          </NavItem>
+        
+
+        <NavItem>
+          <Button>Cart</Button>
+          <Button
             onClick={() => {
-             
-                setOnline("User Online 🟢");
-          
-            
+                setOnline("user online 🟢");
             }}
-            style={{ color: "grey", fontWeight: 100, margin: 15 }}
+            style={{ color: "grey", fontWeight: 100, margin: 15, color: "#fff" }}
+            className="authentication"
           >
             Sign In
-          </button>
-          
+          </Button>
 
-          <small style={{ marginRight: 10 }}>{offline}</small>
+          <Button>Cart</Button>
+
+          
+          <Button
+        
+            onClick={() => {
+                setOnline(!online);
+            }}
+            style={{ color: "grey", fontWeight: 100, margin: 15, color: "#fff" }}
+            className="authentication"
+          >
+            Sign out
+          </Button>
+
+          
+          
+          <small style={{ marginRight: 10 }}>{online}</small>
           <img style={logoStyle2} src={UserLog} alt="logo-created" />
+          </NavItem>
       
-        </NavbarBrand>
+        </Nav>
       </Navbar>
     </div>
   );
