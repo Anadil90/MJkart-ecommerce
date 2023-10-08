@@ -5,7 +5,6 @@ import {
 } from "reactstrap";
 import MJKARTLOGO from "../assets/racetosavings.png";
 import UserLog from "../assets/3541871.png";
-
 import { useState } from "react";
 
 const NavBar = () => {
@@ -32,8 +31,9 @@ const [modalOpen, setModalOpen] = useState(false);
         
 
         <NavItem>
-          <Button onClick={() => setModalOpen(true)}>Cart</Button>
-
+          
+          <Button onClick={() => setModalOpen(true)}></Button>
+<i src={"../assets/add-to-cart.png"}></i>
           <Modal isOpen={modalOpen}>
             <ModalHeader toggle={() => {setModalOpen(false)}}>Shopping Cart</ModalHeader>
             <ModalBody>
