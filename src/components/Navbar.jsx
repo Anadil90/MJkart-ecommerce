@@ -1,40 +1,55 @@
 import "../App.css";
 import "./navbar.css";
 import { 
-  Navbar, Nav, NavbarBrand, Button, NavItem, NavLink, Modal, ModalBody, ModalHeader, FormGroup, Label
+  Navbar, 
+  Nav, 
+  NavbarBrand, 
+  Button, 
+  NavItem, 
+  NavLink, 
+  FormGroup, 
+  Label, 
+  NavbarToggler,
+  Collapse,
+  Modal, 
+  ModalBody, 
+  ModalHeader,
 } from "reactstrap";
 import MJKARTLOGO from "../assets/racetosavings.png";
 import userIcon from "../assets/user-icon.png";
 import { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentUser, selectCurrentUser, removeCurrentUser, selectUserForRemoval} from '../slices/userSlice';
 import cart from "../assets/add-to-cart.png";
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 
-const NavBar = () => {
+const NavBar = (values) => {
 
-const [online, setOnline] = useState("user offline"); //user state
-const [userModal, setUserModal] = useState(false)
-const [username, setUsername ] = useState('');
-const [password, setPassword] = useState(undefined);
+const [userModal, setUserModal] = useState("user offline"); //user state
+const [menuOpen, setMenuOpen] = useState(false);
+const [loginModal, setLoginModalOpen] = useState(false);
 const [cartLoaded, setCartLoaded] = useState(false);//shopping cart state
+const [loggedIn, setLoggedInUser] = useState(false);
+const currentUser = useSelector(selectCurrentUser);
+const dispatch = useDispatch();
 
-const user = {
-  username: '',
-  password: ''
-}
-console.log(user)
 const handleLogin = (values) => {
-  user.username = values.username;
-  user.password = values.password;
-  setUserModal(false)
+  const currentUser = {
+    avatar: userIcon,
+    username: values.username,
+    password: values.password
+  }
+  dispatch(setCurrentUser(currentUser))//dispatch actions of the current user
+  setUserModal(false)//close user modal upon form submit
 }
 
 const loadCart = () => {
   setCartLoaded(true);
 }
-  
+
   return (
-    <div>
-      <Navbar>
+    <>
+        <Navbar>
         
         <NavbarBrand href="/">
           <img className='main-logo' src={MJKARTLOGO} alt="logo-created" />
@@ -50,20 +65,29 @@ const loadCart = () => {
             <p>This is your shopping cart content.</p>
         </ModalBody>
         </Modal>
+        
+            {currentUser ? (//if current user exists
+                    <div style={{ width: '4rem', height: '4rem' }}>
+                        <img
+                            src={currentUser.avatar}
+                            alt={'user'}
+                            style={{ width: '100%', height: '100%' }}
+                        />
+                    </div>
+                ) 
+                : (//if no current user exists
+                    <Button
+                        outline
+                        onClick={() => setLoginModalOpen(true)}
+                        style={{ color: 'white', backgroundColor: '#000'}}
+                    >
+                        <i className='fa fa-sign-in fa-lg' /> Login
+                    </Button>
+                )
+                }
 
-          <Button
-            onClick={() => {
-                setUserModal(true);
-                {/*setOnline("user online 🟢");*/}
-            }}
-            style={{ color: "grey", fontWeight: 100, margin: 15, color: "#fff" }}
-            className="authentication"
-          >
-            Sign In
-          </Button>
-
-          <Modal isOpen={userModal}>
-            <ModalHeader toggle={() => {setUserModal(false)}}>Login</ModalHeader>
+          <Modal isOpen={loginModal}>
+            <ModalHeader toggle={() => {setLoginModalOpen(false)}}>Login</ModalHeader>
             <ModalBody>
               <Formik
               initialValues={{username: '', password: ''}}
@@ -84,26 +108,14 @@ const loadCart = () => {
               </Formik>
             </ModalBody>
           </Modal>
-
           
-          
-          {/*<Button
-        
-            onClick={() => {
-                setOnline(!online);
-            }}
-            style={{ color: "grey", fontWeight: 100, margin: 15, color: "#fff" }}
-            className="authentication"
-          >
-            Sign out
-          </Button>
-          */}
           </NavItem>
       
         </Nav>
       </Navbar>
+    </>
       
-    </div>
+            
   );
 }
 
