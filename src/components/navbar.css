@@ -11,3 +11,13 @@
 .shopping-cart {
     width: 35px;
 }
+
+.navbar {
+    display: flex;
+}
+
+.userSpan {
+    width: auto;
+    display: flex;
+    align-self: baseline;
+}

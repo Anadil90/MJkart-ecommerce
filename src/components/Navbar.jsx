@@ -23,7 +23,7 @@ import { setCurrentUser, selectCurrentUser, removeCurrentUser, selectUserForRemo
 import cart from "../assets/add-to-cart.png";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 
-const NavBar = (values) => {
+const NavBar = () => {
 
 const [userModal, setUserModal] = useState("user offline"); //user state
 const [menuOpen, setMenuOpen] = useState(false);
@@ -46,13 +46,9 @@ const handleLogin = (values) => {
 }
 
 const handleLogout = (() => {
-    const currentUser = {
-        avatar: null,
-        username: null,
-        password: null
-    };
-     dispatch(removeCurrentUser(currentUser))
-    setLoginModalOpen(true)
+    
+    dispatch(removeCurrentUser(currentUser))
+    
    
 })
 
@@ -78,13 +74,13 @@ const loadCart = () => {
             <p>This is your shopping cart content.</p>
         </ModalBody>
         </Modal>
-        
+            
             {currentUser ? (//if current user exists
-                    <div style={{ width: '4rem', height: '4rem' }}>
+                    <div style={{ width: '4rem', height: '4rem'}}>
                         <img
                             src={currentUser.avatar}
                             alt={'user'}
-                            style={{ width: '100%', height: '100%' }}
+                            style={{ width: '100%', height: '100%'}}
                         />
                         <Button onClick={() => handleLogout()}>Logout</Button>
                     </div>
@@ -95,7 +91,7 @@ const loadCart = () => {
                         onClick={() => setLoginModalOpen(true)}
                         style={{ color: 'white', backgroundColor: '#000'}}
                     >
-                        <i className='fa fa-sign-in fa-lg' /> Login
+                     Login
                     </Button>
                 )
             }
