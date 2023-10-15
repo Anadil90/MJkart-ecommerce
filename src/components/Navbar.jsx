@@ -31,6 +31,7 @@ const [loginModal, setLoginModalOpen] = useState(false);
 const [cartLoaded, setCartLoaded] = useState(false);//shopping cart state
 const [loggedIn, setLoggedInUser] = useState(false);
 const currentUser = useSelector(selectCurrentUser);
+const removeUser = useSelector(selectUserForRemoval)
 const dispatch = useDispatch();
 
 const handleLogin = (values) => {
@@ -40,8 +41,20 @@ const handleLogin = (values) => {
     password: values.password
   }
   dispatch(setCurrentUser(currentUser))//dispatch actions of the current user
-  setUserModal(false)//close user modal upon form submit
+  
+  setLoginModalOpen(false)//close user modal upon form submit
 }
+
+const handleLogout = (() => {
+    const currentUser = {
+        avatar: null,
+        username: null,
+        password: null
+    };
+     dispatch(removeCurrentUser(currentUser))
+    setLoginModalOpen(true)
+   
+})
 
 const loadCart = () => {
   setCartLoaded(true);
@@ -73,6 +86,7 @@ const loadCart = () => {
                             alt={'user'}
                             style={{ width: '100%', height: '100%' }}
                         />
+                        <Button onClick={() => handleLogout()}>Logout</Button>
                     </div>
                 ) 
                 : (//if no current user exists
@@ -84,7 +98,7 @@ const loadCart = () => {
                         <i className='fa fa-sign-in fa-lg' /> Login
                     </Button>
                 )
-                }
+            }
 
           <Modal isOpen={loginModal}>
             <ModalHeader toggle={() => {setLoginModalOpen(false)}}>Login</ModalHeader>

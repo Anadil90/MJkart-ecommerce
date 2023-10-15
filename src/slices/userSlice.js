@@ -13,12 +13,22 @@ const userSlice = createSlice({
                 ...state,
                 currentUser: action.payload
             }
+        },
+        removeCurrentUser: (state, action) => {
+            return {
+                ...state,
+                currentUser: action.payload
+            }
         }
     }
 })
 
 export const userReducer = userSlice.reducer;
 export const { setCurrentUser } = userSlice.actions;
+export const { removeCurrentUser } = userSlice.actions;
 export const selectCurrentUser = (state) => {
+    return state.user.currentUser
+}
+export const selectUserForRemoval = (state) => {
     return state.user.currentUser
 }
