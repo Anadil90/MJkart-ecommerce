@@ -4,8 +4,8 @@
 }
 
 .user-logo {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
 }
 
 .shopping-cart {
@@ -14,10 +14,4 @@
 
 .navbar {
     display: flex;
-}
-
-.userSpan {
-    width: auto;
-    display: flex;
-    align-self: baseline;
 }

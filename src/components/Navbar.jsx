@@ -59,7 +59,6 @@ const loadCart = () => {
   return (
     <>
         <Navbar>
-        
         <NavbarBrand href="/">
           <img className='main-logo' src={MJKARTLOGO} alt="logo-created" />
         </NavbarBrand>
@@ -74,7 +73,7 @@ const loadCart = () => {
             <p>This is your shopping cart content.</p>
         </ModalBody>
         </Modal>
-            
+    
             {currentUser ? (//if current user exists
                     <div style={{ width: '4rem', height: '4rem'}}>
                         <img
