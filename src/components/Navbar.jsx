@@ -59,13 +59,13 @@ const loadCart = () => {
   return (
     <>
         <Navbar>
-        <NavbarBrand href="/">
-          <img className='main-logo' src={MJKARTLOGO} alt="logo-created" />
-        </NavbarBrand>
+          <NavbarBrand href="/">
+            <img className='main-logo' src={MJKARTLOGO} alt="logo-created" />
+          </NavbarBrand>
 
-        <Nav>
+        <Nav style={styles.nav}>
 
-        <NavItem>
+        <NavItem style={{display: 'flex'}}>
           <img src={cart} className="shopping-cart" onClick={() => loadCart()}/>
           <Modal isOpen={cartLoaded}>
         <ModalHeader toggle={() => {setCartLoaded(false)}}>Shopping Cart</ModalHeader>
@@ -73,15 +73,17 @@ const loadCart = () => {
             <p>This is your shopping cart content.</p>
         </ModalBody>
         </Modal>
-    
-            {currentUser ? (//if current user exists
-                    <div style={{ width: '4rem', height: '4rem'}}>
+        
+          {currentUser ? (//if current user exists
+                    <div style={styles.userSpan}>
                         <img
                             src={currentUser.avatar}
                             alt={'user'}
                             style={{ width: '100%', height: '100%'}}
                         />
-                        <Button onClick={() => handleLogout()}>Logout</Button>
+                        <Button onClick={() => handleLogout()} outline
+                          style={{ color: 'white', backgroundColor: '#000'}}
+                        >Logout</Button>
                     </div>
                 ) 
                 : (//if no current user exists
@@ -94,7 +96,9 @@ const loadCart = () => {
                     </Button>
                 )
             }
+          </NavItem>
 
+          <NavItem>
           <Modal isOpen={loginModal}>
             <ModalHeader toggle={() => {setLoginModalOpen(false)}}>Login</ModalHeader>
             <ModalBody>
@@ -126,6 +130,15 @@ const loadCart = () => {
       
             
   );
+}
+
+const styles = {
+  userSpan: {
+    display: 'flex',
+    width: '4rem',
+    height: '2rem',
+    
+  }
 }
 
 export default NavBar;

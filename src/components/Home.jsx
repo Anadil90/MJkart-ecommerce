@@ -1,9 +1,19 @@
 import { Col, Row } from "reactstrap";
 import "./home.css";
-import RenderProductList from './RenderProductList';
+import { useState, useEffect } from 'react';
+import { Card, CardBody, CardTitle, CardText, CardImg, Button } from 'reactstrap';
 
 const Home = () => {
-        
+  //create a state to store the products
+// create a useEfect that fethces the data when the component loads
+const [products, setProductsList] = useState([]) 
+
+useEffect(() => {
+  fetch('https://fakestoreapi.com/products?limit=15')
+    .then((response) => response.json())
+    .then((data) => setProductsList(data));
+}, []);
+  
   return (
     <div>
       
@@ -40,14 +50,45 @@ const Home = () => {
           </div>
         </Col>
 
-        
+        <Col md='3'>
+          {
+            products.map((item) => (
+                  <Card style={{width: '18rem'}}>
+                    <CardTitle>{item.title}</CardTitle>
+                    <CardBody style={styles.cardBody}>
+                      <span style={styles.callToActionSpan}>
+                        <Button>Buy Now</Button>
+                        <CardText>Price ${item.price}</CardText>
+                      </span>
+                      
+                      <CardImg src={item.image} style={styles.cardImg} className='img-fluid' />
+                      <CardText>{item.description}</CardText>
+                    </CardBody>
+                  </Card>
+            ))
+          }
+        </Col>
       </Row>
 
-      <RenderProductList />
-      
       
     </div>
   );
 };
+
+const styles = {
+  cardBody: {
+    border: '2px solid aliceblue',
+    margin: '10px'
+  },
+  cardImg: {
+    width: '300px'
+  },
+  callToActionSpan: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  }
+
+}
 
 export default Home;
