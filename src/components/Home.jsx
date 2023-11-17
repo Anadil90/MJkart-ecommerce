@@ -49,39 +49,43 @@ useEffect(() => {
             </p>
           </div>
         </Col>
+      </Row> 
 
-        <Col md='3'>
-          {
-            products.map((item) => (
-                  <Card style={{width: '18rem'}}>
-                    <CardTitle>{item.title}</CardTitle>
-                    <CardBody style={styles.cardBody}>
-                      <span style={styles.callToActionSpan}>
-                        <Button>Buy Now</Button>
-                        <CardText>Price ${item.price}</CardText>
-                      </span>
+      <Row>
+        {
+          products.map((item) => (
+            <Col md='3'>
+              <Card style={styles.card}>
+                <CardTitle>{item.title}</CardTitle>
+                  <CardBody style={styles.cardBody}>
+                    <span style={styles.callToActionSpan}>
+                      <Button>Buy Now</Button>
+                      <CardText>Price ${item.price}</CardText>
+                    </span>
                       
-                      <CardImg src={item.image} style={styles.cardImg} className='img-fluid' />
-                      <CardText>{item.description}</CardText>
-                    </CardBody>
-                  </Card>
-            ))
-          }
-        </Col>
+                    <CardImg src={item.image} style={styles.cardImg} className='img-fluid' />
+                  </CardBody>
+              </Card>
+            </Col>          
+          ))
+        }
       </Row>
-
-      
     </div>
   );
 };
 
 const styles = {
+  card: {
+    width: '18rem',
+    margin: '30px 30px' 
+  },
   cardBody: {
     border: '2px solid aliceblue',
     margin: '10px'
   },
   cardImg: {
-    width: '300px'
+    width: '300px',
+    height: '230px'
   },
   callToActionSpan: {
     display: 'flex',
